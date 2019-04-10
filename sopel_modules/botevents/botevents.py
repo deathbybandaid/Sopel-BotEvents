@@ -15,8 +15,8 @@ def configure(config):
 
 def setup(bot):
 
+    stderr("Starting Module Events Logging")
     if "bot_module_events" not in bot.memory:
-        stderr("Starting Module Events Logging")
         bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
 
 
