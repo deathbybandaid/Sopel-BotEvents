@@ -8,12 +8,17 @@ from .botevents import *
 import time
 
 
-@sopel.module.event('001')
-@sopel.module.rule('.*')
-@sopel.module.thread(True)
+def setup(bot):
+    startup_bot_event(bot, "connected")
+
+
+@module.event('001')
+@module.rule('.*')
+@module.thread(True)
 def bot_startup_connection(bot, trigger):
 
-    startup_bot_event(bot, "connected")
+    if check_bot_events(bot, ["startup_complete"]:
+        return
 
     while not bot.users or not bot.users.contains(bot.nick):
         pass

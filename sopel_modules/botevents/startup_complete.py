@@ -13,8 +13,17 @@ def configure(config):
 
 
 def setup(bot):
-
     startup_bot_event(bot, 'startup_start')
+
+
+@module.event('001')
+@module.rule('.*')
+@module.thread(True)
+def bot_startup_complete(bot, trigger):
+
+    if check_bot_events(bot, ["startup_complete"]:
+        return
+
     while len(list_bot_events(bot, "startup")) > 1:
         pass
 
