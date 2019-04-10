@@ -5,6 +5,9 @@ Sopel BotEvents is a poor mans way to create module load order dependencies
 """
 from __future__ import unicode_literals, absolute_import, division, print_function
 
+import sopel.module
+from sopel.tools import stderr
+
 
 __author__ = 'Sam Zick'
 __email__ = 'sam@deathbybandaid.net'
@@ -16,6 +19,8 @@ def configure(config):
 
 
 def setup(bot):
+
+    stderr("Starting Module Events Logging")
     if "bot_module_events" not in bot.memory:
         bot.memory["bot_module_events"] = []
 
