@@ -20,10 +20,10 @@ def setup(bot):
         bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
 
 
-def list_bot_events(bot):
+def list_bot_events(bot, type):
     if "bot_module_events" not in bot.memory:
         bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
-    return bot.memory["bot_module_events"]["loaded"]
+    return bot.memory["bot_module_events"][type]
 
 
 def check_bot_events(bot, listreq):
