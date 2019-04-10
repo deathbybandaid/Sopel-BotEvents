@@ -12,6 +12,9 @@ def setup(bot):
 
     startup_bot_event(bot, "connected")
 
+    while not bot.users or not bot.users.contains(bot.nick):
+        pass
+
     while not len(bot.channels.keys()) > 0:
         pass
     time.sleep(1)
