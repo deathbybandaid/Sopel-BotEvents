@@ -8,7 +8,10 @@ from .botevents import *
 import time
 
 
-def setup(bot):
+@sopel.module.event('001')
+@sopel.module.rule('.*')
+@sopel.module.thread(True)
+def bot_startup_connection(bot):
 
     startup_bot_event(bot, "connected")
 
