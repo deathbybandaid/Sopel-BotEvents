@@ -3,6 +3,7 @@
 from __future__ import unicode_literals, absolute_import, division, print_function
 
 from sopel import module
+from sopel.tools import stderr
 from .botevents import *
 
 import time
@@ -19,9 +20,6 @@ def bot_startup_connection(bot, trigger):
 
     if check_bot_events(bot, ["startup_complete"]):
         return
-
-    while not bot.users or not bot.users.contains(bot.nick):
-        pass
 
     while not len(bot.channels.keys()) > 0:
         pass
