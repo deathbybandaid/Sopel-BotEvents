@@ -8,11 +8,14 @@ from .botevents import *
 import time
 
 
-def configure(config):
-    pass
+@module.event('001')
+@module.rule('.*')
+@module.thread(True)
+def bot_startup_connected(bot, trigger):
 
-
-def setup(bot):
+    if check_bot_events(bot, ["connected"]):
+        return
+    startup_bot_event(bot, "connected")
 
     while not len(bot.channels.keys()) > 0:
         pass

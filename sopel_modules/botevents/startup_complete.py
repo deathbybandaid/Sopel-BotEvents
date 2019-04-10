@@ -14,7 +14,8 @@ def configure(config):
 
 def setup(bot):
 
-    while not check_bot_events(bot, bot.memory["bot_module_events"]["registered"]):
+    startup_bot_event(bot, 'startup_start')
+    while len(list_bot_events(bot, "startup")) > 1:
         pass
 
     set_bot_event(bot, "startup_complete")
