@@ -11,7 +11,7 @@ import time
 @sopel.module.event('001')
 @sopel.module.rule('.*')
 @sopel.module.thread(True)
-def bot_startup_connection(bot):
+def bot_startup_connection(bot, trigger):
 
     startup_bot_event(bot, "connected")
 
