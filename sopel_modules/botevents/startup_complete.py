@@ -16,3 +16,4 @@ def setup(bot):
         pass
 
     set_bot_event(bot, "startup_complete")
+    stderr("Module Events Logging Complete")
