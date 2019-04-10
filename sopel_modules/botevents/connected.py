@@ -17,7 +17,7 @@ def setup(bot):
 @module.thread(True)
 def bot_startup_connection(bot, trigger):
 
-    if check_bot_events(bot, ["startup_complete"]:
+    if check_bot_events(bot, ["startup_complete"]):
         return
 
     while not bot.users or not bot.users.contains(bot.nick):

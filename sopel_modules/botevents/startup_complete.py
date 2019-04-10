@@ -21,7 +21,7 @@ def setup(bot):
 @module.thread(True)
 def bot_startup_complete(bot, trigger):
 
-    if check_bot_events(bot, ["startup_complete"]:
+    if check_bot_events(bot, ["startup_complete"]):
         return
 
     while len(list_bot_events(bot, "startup")) > 1:
