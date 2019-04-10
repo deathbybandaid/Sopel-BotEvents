@@ -6,6 +6,8 @@ Sopel BotEvents is a poor mans way to create module load order dependencies
 from __future__ import unicode_literals, absolute_import, division, print_function
 
 from .botevents import *
+from .connected import *
+from .startup_complete import *
 
 
 __author__ = 'Sam Zick'

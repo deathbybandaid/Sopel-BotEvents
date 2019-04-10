@@ -16,7 +16,7 @@ def configure(config):
 def setup(bot):
 
     if "bot_module_events" not in bot.memory:
-        stderr("Starting Module Events Logging")
+        stderr("[Sopel-BotEvents] Starting Module Events Logging")
         bot.memory["bot_module_events"] = {"loaded": [], "startup": []}
 
 

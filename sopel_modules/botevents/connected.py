@@ -15,6 +15,6 @@ def setup(bot):
     while not len(bot.channels.keys()) > 0:
         pass
     time.sleep(1)
-    stderr("channels attached")
+    stderr("[Sopel-BotEvents] channels attached")
 
     set_bot_event(bot, "connected")
