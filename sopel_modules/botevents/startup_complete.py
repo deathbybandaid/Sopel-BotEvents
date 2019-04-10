@@ -12,9 +12,6 @@ from .botevents import *
 @module.rule('.*')
 def bot_startup_complete(bot, trigger):
 
-    if check_bot_events(bot, ["startup_complete"]):
-        return
-
     while not check_bot_startup(bot):
         pass
 

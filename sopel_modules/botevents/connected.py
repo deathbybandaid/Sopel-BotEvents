@@ -9,16 +9,13 @@ from .botevents import *
 import time
 
 
-def setup(bot):
-    startup_bot_event(bot, "connected")
-
-
 @module.event('001')
 @module.rule('.*')
 def bot_startup_connection(bot, trigger):
 
     if check_bot_events(bot, ["startup_complete"]):
         return
+    startup_bot_event(bot, "connected")
 
     while not len(bot.channels.keys()) > 0:
         pass
