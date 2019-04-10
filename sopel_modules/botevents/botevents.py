@@ -46,9 +46,6 @@ def set_bot_event(bot, addonreq):
         addonreq = [str(addonreq)]
 
     bot.memory["bot_module_events"]["loaded"].extend(addonreq)
-    for addonitem in addonreq:
-        if addonitem in bot.memory["bot_module_events"]["startup"]:
-            bot.memory["bot_module_events"]["startup"].remove(addonreq)
 
 
 def startup_bot_event(bot, addonreq):
@@ -59,3 +56,14 @@ def startup_bot_event(bot, addonreq):
         addonreq = [str(addonreq)]
 
     bot.memory["bot_module_events"]["startup"].extend(addonreq)
+
+
+def check_bot_startup(bot):
+
+    if "bot_module_events" not in bot.memory:
+        bot.memory["bot_module_events"] = {"loaded": [], "startup": []}
+
+    for startupitem in bot.memory["bot_module_events"]["startup"]:
+        if startupitem not in bot.memory["bot_module_events"]["loaded"]:
+            return False
+    return True
