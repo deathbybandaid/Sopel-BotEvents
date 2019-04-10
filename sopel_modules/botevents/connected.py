@@ -15,7 +15,6 @@ def setup(bot):
 
 @module.event('001')
 @module.rule('.*')
-@module.thread(True)
 def bot_startup_connection(bot, trigger):
 
     if check_bot_events(bot, ["startup_complete"]):
@@ -24,6 +23,5 @@ def bot_startup_connection(bot, trigger):
     while not len(bot.channels.keys()) > 0:
         pass
     time.sleep(1)
-    stderr("[Sopel-BotEvents] channels attached")
 
     set_bot_event(bot, "connected")
