@@ -17,25 +17,25 @@ def setup(bot):
 
     stderr("Starting Module Events Logging")
     if "bot_module_events" not in bot.memory:
-        bot.memory["bot_module_events"] = []
+        bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
 
 
 def list_bot_events(bot):
     if "bot_module_events" not in bot.memory:
-        bot.memory["bot_module_events"] = []
-    return bot.memory["bot_module_events"]
+        bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
+    return bot.memory["bot_module_events"]["loaded"]
 
 
 def check_bot_events(bot, listreq):
 
     if "bot_module_events" not in bot.memory:
-        bot.memory["bot_module_events"] = []
+        bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
 
     if not isinstance(listreq, list):
         listreq = [str(listreq)]
 
     for requirement in listreq:
-        if requirement not in bot.memory["bot_module_events"]:
+        if requirement not in bot.memory["bot_module_events"]["loaded"]:
             return False
     return True
 
@@ -46,6 +46,17 @@ def set_bot_event(bot, addonreq):
         addonreq = [str(addonreq)]
 
     if "bot_module_events" not in bot.memory:
-        bot.memory["bot_module_events"] = []
+        bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
 
-    bot.memory["bot_module_events"].extend(addonreq)
+    bot.memory["bot_module_events"]["loaded"].extend(addonreq)
+
+
+def register_bot_event(bot, addonreq):
+
+    if not isinstance(addonreq, list):
+        addonreq = [str(addonreq)]
+
+    if "bot_module_events" not in bot.memory:
+        bot.memory["bot_module_events"] = {"loaded": [], "registered": []}
+
+    bot.memory["bot_module_events"]["registered"].extend(addonreq)
