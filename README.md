@@ -8,7 +8,7 @@ use at your own risk
 # Installation
 ````
 git clone https://github.com/deathbybandaid/Sopel-BotEvents.git
-cd Sopel-OSD
+cd Sopel-BotEvents
 pip3 install .
 ````
 
