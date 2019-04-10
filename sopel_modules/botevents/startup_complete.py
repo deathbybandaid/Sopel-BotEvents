@@ -3,6 +3,8 @@
 from __future__ import unicode_literals, absolute_import, division, print_function
 
 from sopel import module
+from sopel.tools import stderr
+
 from .botevents import *
 
 
