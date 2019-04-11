@@ -3,7 +3,7 @@
 Sopel BotEvents is a poor mans way to create module load order dependencies
 
 # This code is bad, and the author doesn't feel bad
-use at your own risk
+Use at your own risk. Problems are not my fault™.
 
 # Installation
 ````
@@ -16,16 +16,16 @@ pip3 install .
 
 Let's say you have 3 modules, module_a module_b and module_c
 
-You want them all to run at bot startup. Typically this can be achieve with:
+You want them all to run at bot startup. Typically this can be achieved with:
 
 ````
 def setup(bot)
 ````
 
-This method works great, if your setup procedure doesn't rely on the bot being connected to at leas one channel on a server.
+This method works great, if your setup procedure doesn't rely on the bot being connected to at least one channel on a server.
 Your startup module might even need to use `bot.say`, which is not available before connection.
 
-You then look into IRC events, and the closest one you can find to bot startup is event 001.
+You then look into IRC events, and the closest one you can find to "bot startup" is event 001.
 
 
 ````
@@ -41,7 +41,7 @@ for channel in bot.channels.keys():
   bot.say(message, channel)
 ````
 
-But WAIT, bot.channels.keys() throws an error, as it's an empty list, so you find a solution
+But WAIT - bot.channels.keys() throws an error, as it's an empty list, so you find a solution
 
 ````
 while not len(bot.channels.keys()) > 0:
@@ -57,12 +57,12 @@ What if you need your modules to wait for another module to be loaded?
 
 If module_a relies on module_c and module_b relies on both a and c, you may need a system to keep them from running at the same time.
 
-NOTE: obviously usage of this to make `a` rely on `b` and `b` rely on `a` will cause things to never load.
+NOTE: obviously usage of this to make `a` rely on `b` and `b` rely on `a` will cause things to never load. That's called circular referencing, and only monsters do that.
 
-NOTE: this only works on modules that utilize this framework
+NOTE: This only works on modules that utilize this framework. Obviously.
 
 
-# basic usage
+# Basic Usage
 
 To make your module part of what qualifies as a complete startup, add to the top of your event,
 
