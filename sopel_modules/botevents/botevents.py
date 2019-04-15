@@ -26,10 +26,14 @@ def setup_thread(bot):
 
 
 def list_bot_events(bot, list_type):
+    if "Sopel-BotEvents" not in bot.memory:
+        bot.memory["Sopel-BotEvents"] = {"loaded": [], "startup": []}
     return bot.memory["Sopel-BotEvents"][list_type]
 
 
 def check_bot_events(bot, listreq):
+    if "Sopel-BotEvents" not in bot.memory:
+        bot.memory["Sopel-BotEvents"] = {"loaded": [], "startup": []}
     if not isinstance(listreq, list):
         listreq = [str(listreq)]
     for requirement in listreq:
@@ -39,6 +43,8 @@ def check_bot_events(bot, listreq):
 
 
 def set_bot_event(bot, addonreq):
+    if "Sopel-BotEvents" not in bot.memory:
+        bot.memory["Sopel-BotEvents"] = {"loaded": [], "startup": []}
     if not isinstance(addonreq, list):
         addonreq = [str(addonreq)]
 
@@ -46,6 +52,8 @@ def set_bot_event(bot, addonreq):
 
 
 def startup_bot_event(bot, addonreq):
+    if "Sopel-BotEvents" not in bot.memory:
+        bot.memory["Sopel-BotEvents"] = {"loaded": [], "startup": []}
     if not isinstance(addonreq, list):
         addonreq = [str(addonreq)]
 
@@ -53,6 +61,8 @@ def startup_bot_event(bot, addonreq):
 
 
 def check_bot_startup(bot):
+    if "Sopel-BotEvents" not in bot.memory:
+        bot.memory["Sopel-BotEvents"] = {"loaded": [], "startup": []}
     for startupitem in bot.memory["Sopel-BotEvents"]["startup"]:
         if startupitem not in bot.memory["Sopel-BotEvents"]["loaded"]:
             return False
