@@ -15,13 +15,13 @@ def configure(config):
 
 
 def setup(bot):
+    stderr("[Sopel-BotEvents] Starting Module Events Logging")
 
     threading.Thread(target=setup_thread, args=(bot,)).start()
 
 
 def setup_thread(bot):
     if "Sopel-BotEvents" not in bot.memory:
-        stderr("[Sopel-BotEvents] Starting Module Events Logging")
         bot.memory["Sopel-BotEvents"] = {"loaded": [], "startup": []}
 
 
