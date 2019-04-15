@@ -7,6 +7,7 @@ from __future__ import unicode_literals, absolute_import, division, print_functi
 
 import sopel.module
 from sopel.tools import stderr
+import threading
 
 
 def configure(config):
